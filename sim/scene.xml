@@ -1,0 +1,224 @@
+<mujoco model="campetto_1v1">
+  <compiler angle="radian"/>
+
+  <option timestep="0.00416667" integrator="implicitfast" solver="CG" iterations="20" ls_iterations="40"/>
+
+  <visual>
+    <global offwidth="1920" offheight="1080"/>
+    <quality shadowsize="8192"/>
+    <headlight ambient="0.4 0.4 0.4"/>
+    <map zfar="400"/>
+  </visual>
+
+  <default>
+    <default class="home0/main"/>
+    <default class="away0/main"/>
+  </default>
+
+  <asset>
+    <texture type="skybox" colorspace="auto" name="sky" builtin="gradient" rgb1="0.55 0.7 0.9" rgb2="0.1 0.15 0.3" width="512" height="3072"/>
+  </asset>
+
+  <worldbody>
+    <geom name="ground" size="30 22.5 0.1" type="plane" conaffinity="26" rgba="0.18 0.48 0.18 1"/>
+    <geom name="wall_x_pos" size="100 100 0.1" pos="25 0 0" quat="0.707107 0 -0.707107 0" type="plane" conaffinity="26" rgba="0 0 0 0"/>
+    <geom name="wall_x_neg" size="100 100 0.1" pos="-25 0 0" quat="0.707107 0 0.707107 0" type="plane" conaffinity="26" rgba="0 0 0 0"/>
+    <geom name="wall_y_pos" size="100 100 0.1" pos="0 17.5 0" quat="0.707107 0.707107 0 0" type="plane" conaffinity="26" rgba="0 0 0 0"/>
+    <geom name="wall_y_neg" size="100 100 0.1" pos="0 -17.5 0" quat="0.707107 -0.707107 0 0" type="plane" conaffinity="26" rgba="0 0 0 0"/>
+    <geom name="stripe0" size="1.66667 12.5 0.0005" pos="-18.3333 0 0.0005" type="box" contype="0" conaffinity="0" group="1" rgba="0.22 0.56 0.22 1"/>
+    <geom name="stripe2" size="1.66667 12.5 0.0005" pos="-11.6667 0 0.0005" type="box" contype="0" conaffinity="0" group="1" rgba="0.22 0.56 0.22 1"/>
+    <geom name="stripe4" size="1.66667 12.5 0.0005" pos="-5 0 0.0005" type="box" contype="0" conaffinity="0" group="1" rgba="0.22 0.56 0.22 1"/>
+    <geom name="stripe6" size="1.66667 12.5 0.0005" pos="1.66667 0 0.0005" type="box" contype="0" conaffinity="0" group="1" rgba="0.22 0.56 0.22 1"/>
+    <geom name="stripe8" size="1.66667 12.5 0.0005" pos="8.33333 0 0.0005" type="box" contype="0" conaffinity="0" group="1" rgba="0.22 0.56 0.22 1"/>
+    <geom name="stripe10" size="1.66667 12.5 0.0005" pos="15 0 0.0005" type="box" contype="0" conaffinity="0" group="1" rgba="0.22 0.56 0.22 1"/>
+    <geom name="line0" size="20 0.06 0.001" pos="0 -12.44 0.001" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line1" size="20 0.06 0.001" pos="0 12.44 0.001" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line2" size="12.5 0.06 0.001" pos="-19.94 0 0.001" quat="0.707107 0 0 0.707107" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line3" size="12.5 0.06 0.001" pos="19.94 0 0.001" quat="0.707107 0 0 0.707107" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line4" size="12.5 0.06 0.001" pos="0 0 0.001" quat="0.707107 0 0 0.707107" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line5" size="8 0.06 0.001" pos="-12.06 0 0.001" quat="0.707107 0 0 0.707107" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line6" size="4 0.06 0.001" pos="-16 -7.94 0.001" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line7" size="4 0.06 0.001" pos="-16 7.94 0.001" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line8" size="4.5 0.06 0.001" pos="-17.06 0 0.001" quat="0.707107 0 0 0.707107" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line9" size="1.5 0.06 0.001" pos="-18.5 -4.44 0.001" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line10" size="1.5 0.06 0.001" pos="-18.5 4.44 0.001" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line11" size="8 0.06 0.001" pos="12.06 0 0.001" quat="0.707107 0 0 0.707107" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line12" size="4 0.06 0.001" pos="16 -7.94 0.001" quat="0 0 0 1" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line13" size="4 0.06 0.001" pos="16 7.94 0.001" quat="0 0 0 1" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line14" size="4.5 0.06 0.001" pos="17.06 0 0.001" quat="0.707107 0 0 0.707107" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line15" size="1.5 0.06 0.001" pos="18.5 -4.44 0.001" quat="0 0 0 1" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line16" size="1.5 0.06 0.001" pos="18.5 4.44 0.001" quat="0 0 0 1" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line17" size="0.252285 0.06 0.001" pos="2.92742 0.191874 0.001" quat="0.683592 0 0 0.729864" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line18" size="0.252285 0.06 0.001" pos="2.87733 0.572337 0.001" quat="0.634393 0 0 0.77301" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line19" size="0.252285 0.06 0.001" pos="2.77801 0.943009 0.001" quat="0.582478 0 0 0.812847" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line20" size="0.252285 0.06 0.001" pos="2.63116 1.29754 0.001" quat="0.528068 0 0 0.849202" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line21" size="0.252285 0.06 0.001" pos="2.43929 1.62988 0.001" quat="0.471397 0 0 0.881921" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line22" size="0.252285 0.06 0.001" pos="2.20568 1.93433 0.001" quat="0.412707 0 0 0.910864" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line23" size="0.252285 0.06 0.001" pos="1.93433 2.20568 0.001" quat="0.35225 0 0 0.935906" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line24" size="0.252285 0.06 0.001" pos="1.62988 2.43929 0.001" quat="0.290285 0 0 0.95694" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line25" size="0.252285 0.06 0.001" pos="1.29754 2.63116 0.001" quat="0.227076 0 0 0.973877" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line26" size="0.252285 0.06 0.001" pos="0.943009 2.77801 0.001" quat="0.162895 0 0 0.986643" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line27" size="0.252285 0.06 0.001" pos="0.572337 2.87733 0.001" quat="0.0980171 0 0 0.995185" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line28" size="0.252285 0.06 0.001" pos="0.191874 2.92742 0.001" quat="0.0327191 0 0 0.999465" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line29" size="0.252285 0.06 0.001" pos="-0.191874 2.92742 0.001" quat="0.0327191 0 0 -0.999465" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line30" size="0.252285 0.06 0.001" pos="-0.572337 2.87733 0.001" quat="0.0980171 0 0 -0.995185" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line31" size="0.252285 0.06 0.001" pos="-0.943009 2.77801 0.001" quat="0.162895 0 0 -0.986643" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line32" size="0.252285 0.06 0.001" pos="-1.29754 2.63116 0.001" quat="0.227076 0 0 -0.973877" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line33" size="0.252285 0.06 0.001" pos="-1.62988 2.43929 0.001" quat="0.290285 0 0 -0.95694" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line34" size="0.252285 0.06 0.001" pos="-1.93433 2.20568 0.001" quat="0.35225 0 0 -0.935906" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line35" size="0.252285 0.06 0.001" pos="-2.20568 1.93433 0.001" quat="0.412707 0 0 -0.910864" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line36" size="0.252285 0.06 0.001" pos="-2.43929 1.62988 0.001" quat="0.471397 0 0 -0.881921" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line37" size="0.252285 0.06 0.001" pos="-2.63116 1.29754 0.001" quat="0.528068 0 0 -0.849202" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line38" size="0.252285 0.06 0.001" pos="-2.77801 0.943009 0.001" quat="0.582478 0 0 -0.812847" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line39" size="0.252285 0.06 0.001" pos="-2.87733 0.572337 0.001" quat="0.634393 0 0 -0.77301" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line40" size="0.252285 0.06 0.001" pos="-2.92742 0.191874 0.001" quat="0.683592 0 0 -0.729864" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line41" size="0.252285 0.06 0.001" pos="-2.92742 -0.191874 0.001" quat="0.729864 0 0 -0.683592" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line42" size="0.252285 0.06 0.001" pos="-2.87733 -0.572337 0.001" quat="0.77301 0 0 -0.634393" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line43" size="0.252285 0.06 0.001" pos="-2.77801 -0.943009 0.001" quat="0.812847 0 0 -0.582478" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line44" size="0.252285 0.06 0.001" pos="-2.63116 -1.29754 0.001" quat="0.849202 0 0 -0.528068" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line45" size="0.252285 0.06 0.001" pos="-2.43929 -1.62988 0.001" quat="0.881921 0 0 -0.471397" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line46" size="0.252285 0.06 0.001" pos="-2.20568 -1.93433 0.001" quat="0.910864 0 0 -0.412707" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line47" size="0.252285 0.06 0.001" pos="-1.93433 -2.20568 0.001" quat="0.935906 0 0 -0.35225" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line48" size="0.252285 0.06 0.001" pos="-1.62988 -2.43929 0.001" quat="0.95694 0 0 -0.290285" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line49" size="0.252285 0.06 0.001" pos="-1.29754 -2.63116 0.001" quat="0.973877 0 0 -0.227076" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line50" size="0.252285 0.06 0.001" pos="-0.943009 -2.77801 0.001" quat="0.986643 0 0 -0.162895" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line51" size="0.252285 0.06 0.001" pos="-0.572337 -2.87733 0.001" quat="0.995185 0 0 -0.0980171" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line52" size="0.252285 0.06 0.001" pos="-0.191874 -2.92742 0.001" quat="0.999465 0 0 -0.0327191" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line53" size="0.252285 0.06 0.001" pos="0.191874 -2.92742 0.001" quat="0.999465 0 0 0.0327191" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line54" size="0.252285 0.06 0.001" pos="0.572337 -2.87733 0.001" quat="0.995185 0 0 0.0980171" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line55" size="0.252285 0.06 0.001" pos="0.943009 -2.77801 0.001" quat="0.986643 0 0 0.162895" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line56" size="0.252285 0.06 0.001" pos="1.29754 -2.63116 0.001" quat="0.973877 0 0 0.227076" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line57" size="0.252285 0.06 0.001" pos="1.62988 -2.43929 0.001" quat="0.95694 0 0 0.290285" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line58" size="0.252285 0.06 0.001" pos="1.93433 -2.20568 0.001" quat="0.935906 0 0 0.35225" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line59" size="0.252285 0.06 0.001" pos="2.20568 -1.93433 0.001" quat="0.910864 0 0 0.412707" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line60" size="0.252285 0.06 0.001" pos="2.43929 -1.62988 0.001" quat="0.881921 0 0 0.471397" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line61" size="0.252285 0.06 0.001" pos="2.63116 -1.29754 0.001" quat="0.849202 0 0 0.528068" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line62" size="0.252285 0.06 0.001" pos="2.77801 -0.943009 0.001" quat="0.812847 0 0 0.582478" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line63" size="0.252285 0.06 0.001" pos="2.87733 -0.572337 0.001" quat="0.77301 0 0 0.634393" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="line64" size="0.252285 0.06 0.001" pos="2.92742 -0.191874 0.001" quat="0.729864 0 0 0.683592" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="spot_home" size="0.11 0.11 0.001" pos="-14 0 0.001" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="spot_away" size="0.11 0.11 0.001" pos="14 0 0.001" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <geom name="centre_spot" size="0.11 0.11 0.001" pos="0 0 0.001" type="box" contype="0" conaffinity="0" group="1" rgba="0.95 0.95 0.95 1"/>
+    <camera name="top_down" pos="0 0 44.2417" fovy="36"/>
+    <camera name="broadcast" quat="0.84283 0.53818 0 0" pos="0 -34.5 16"/>
+    <light name="sun" pos="0 0 80" dir="0.188144 0.282216 -0.940721" diffuse="0.8 0.8 0.8" type="directional"/>
+    <body name="ball" pos="0 0 0.11">
+      <joint name="ball_root" type="free"/>
+      <geom name="ball" size="0.11" contype="2" conaffinity="29" condim="6" priority="1" friction="0.7 0.05 0.04" solref="0.02 0.265" rgba="0.95 0.95 0.95 1" mass="0.43"/>
+    </body>
+    <frame pos="-19 0 0.959">
+      <body name="home0/pelvis">
+        <joint name="home0/root" type="free"/>
+        <geom name="home0/pelvis" size="0.0774 0.0945" quat="0.707107 0.707107 0 0" type="capsule" contype="8" conaffinity="27" rgba="0.1 0.1 0.1 1" mass="10.65"/>
+        <site name="home0/kp/MidHip" size="0.02" group="4" rgba="1 0.85 0.1 1"/>
+        <site name="home0/kp/RHip" size="0.02" pos="0 -0.0945 0" group="4" rgba="1 0.85 0.1 1"/>
+        <site name="home0/kp/LHip" size="0.02" pos="0 0.0945 0" group="4" rgba="1 0.85 0.1 1"/>
+        <body name="home0/torso">
+          <joint name="home0/spine_x" range="-0.523599 0.523599" armature="0.02" damping="5" axis="1 0 0"/>
+          <joint name="home0/spine_y" range="-0.523599 1.0472" armature="0.02" damping="5" axis="0 1 0"/>
+          <joint name="home0/spine_z" range="-0.698132 0.698132" armature="0.02" damping="5"/>
+          <geom name="home0/torso" size="0.135 0.1602" pos="0 0 0.2682" quat="0 1 0 0" type="capsule" contype="8" conaffinity="27" rgba="0.15 0.3 0.85 1" mass="21.3"/>
+          <geom name="home0/shoulders" size="0.063 0.1395" pos="0 0 0.4464" quat="0.707107 0.707107 0 0" type="capsule" contype="8" conaffinity="27" rgba="0.15 0.3 0.85 1" mass="5.325"/>
+          <site name="home0/kp/Neck" size="0.02" pos="0 0 0.5184" group="4" rgba="1 0.85 0.1 1"/>
+          <site name="home0/kp/RShoulder" size="0.02" pos="0 -0.1935 0.5184" group="4" rgba="1 0.85 0.1 1"/>
+          <site name="home0/kp/LShoulder" size="0.02" pos="0 0.1935 0.5184" group="4" rgba="1 0.85 0.1 1"/>
+          <body name="home0/head" pos="0 0 0.5184">
+            <joint name="home0/neck_x" range="-0.785398 0.785398" armature="0.02" damping="1" axis="1 0 0"/>
+            <joint name="home0/neck_y" range="-0.872665 1.0472" armature="0.02" damping="1" axis="0 1 0"/>
+            <joint name="home0/neck_z" range="-1.39626 1.39626" armature="0.02" damping="1"/>
+            <geom name="home0/head" size="0.1044" pos="0.018 0 0.2016" contype="8" conaffinity="27" rgba="0.85 0.65 0.5 1" mass="6.075"/>
+            <site name="home0/kp/Nose" size="0.02" pos="0.099 0 0.18" group="4" rgba="1 0.85 0.1 1"/>
+            <site name="home0/kp/REye" size="0.02" pos="0.081 -0.0324 0.2124" group="4" rgba="1 0.85 0.1 1"/>
+            <site name="home0/kp/LEye" size="0.02" pos="0.081 0.0324 0.2124" group="4" rgba="1 0.85 0.1 1"/>
+            <site name="home0/kp/REar" size="0.02" pos="0 -0.0756 0.2016" group="4" rgba="1 0.85 0.1 1"/>
+            <site name="home0/kp/LEar" size="0.02" pos="0 0.0756 0.2016" group="4" rgba="1 0.85 0.1 1"/>
+          </body>
+          <body name="home0/r_upperarm" pos="0 -0.1935 0.5184">
+            <joint name="home0/r_shoulder_x" range="-0.523599 2.96706" armature="0.02" damping="2" axis="-1 0 0"/>
+            <joint name="home0/r_shoulder_y" range="-2.96706 0.872665" armature="0.02" damping="2" axis="0 1 0"/>
+            <joint name="home0/r_shoulder_z" range="-1.5708 1.5708" armature="0.02" damping="2" axis="0 0 -1"/>
+            <geom name="home0/r_upperarm" size="0.045 0.1674" pos="0 0 -0.1674" type="capsule" contype="8" conaffinity="27" rgba="0.15 0.3 0.85 1" mass="2.1"/>
+            <site name="home0/kp/RElbow" size="0.02" pos="0 0 -0.3348" group="4" rgba="1 0.85 0.1 1"/>
+            <body name="home0/r_forearm" pos="0 0 -0.3348">
+              <joint name="home0/r_elbow" range="0 2.61799" armature="0.02" damping="2" axis="0 -1 0"/>
+              <geom name="home0/r_forearm" size="0.036 0.1314" pos="0 0 -0.1314" type="capsule" contype="8" conaffinity="27" rgba="0.85 0.65 0.5 1" mass="1.2"/>
+              <geom name="home0/r_hand" size="0.0324 0.05832" pos="0 0 -0.32112" type="capsule" contype="8" conaffinity="27" rgba="0.85 0.65 0.5 1" mass="0.45"/>
+              <site name="home0/kp/RWrist" size="0.02" pos="0 0 -0.2628" group="4" rgba="1 0.85 0.1 1"/>
+            </body>
+          </body>
+          <body name="home0/l_upperarm" pos="0 0.1935 0.5184">
+            <joint name="home0/l_shoulder_x" range="-0.523599 2.96706" armature="0.02" damping="2" axis="1 0 0"/>
+            <joint name="home0/l_shoulder_y" range="-2.96706 0.872665" armature="0.02" damping="2" axis="0 1 0"/>
+            <joint name="home0/l_shoulder_z" range="-1.5708 1.5708" armature="0.02" damping="2"/>
+            <geom name="home0/l_upperarm" size="0.045 0.1674" pos="0 0 -0.1674" type="capsule" contype="8" conaffinity="27" rgba="0.15 0.3 0.85 1" mass="2.1"/>
+            <site name="home0/kp/LElbow" size="0.02" pos="0 0 -0.3348" group="4" rgba="1 0.85 0.1 1"/>
+            <body name="home0/l_forearm" pos="0 0 -0.3348">
+              <joint name="home0/l_elbow" range="0 2.61799" armature="0.02" damping="2" axis="0 -1 0"/>
+              <geom name="home0/l_forearm" size="0.036 0.1314" pos="0 0 -0.1314" type="capsule" contype="8" conaffinity="27" rgba="0.85 0.65 0.5 1" mass="1.2"/>
+              <geom name="home0/l_hand" size="0.0324 0.05832" pos="0 0 -0.32112" type="capsule" contype="8" conaffinity="27" rgba="0.85 0.65 0.5 1" mass="0.45"/>
+              <site name="home0/kp/LWrist" size="0.02" pos="0 0 -0.2628" group="4" rgba="1 0.85 0.1 1"/>
+            </body>
+          </body>
+        </body>
+        <body name="home0/r_thigh" pos="0 -0.0945 0">
+          <joint name="home0/r_hip_y" range="-2.35619 0.523599" armature="0.02" damping="2" axis="0 1 0"/>
+          <joint name="home0/r_hip_x" range="-0.523599 1.0472" armature="0.02" damping="2" axis="-1 0 0"/>
+          <joint name="home0/r_hip_z" range="-0.785398 0.785398" armature="0.02" damping="2" axis="0 0 -1"/>
+          <geom name="home0/r_thigh" size="0.063 0.2025" pos="0 0 -0.2385" type="capsule" contype="8" conaffinity="27" rgba="0.1 0.1 0.1 1" mass="7.5"/>
+          <site name="home0/kp/RKnee" size="0.02" pos="0 0 -0.441" group="4" rgba="1 0.85 0.1 1"/>
+          <body name="home0/r_shin" pos="0 0 -0.441">
+            <joint name="home0/r_knee" range="0 2.79253" armature="0.02" damping="2" axis="0 1 0"/>
+            <geom name="home0/r_shin" size="0.0486 0.2124" pos="0 0 -0.2304" type="capsule" contype="8" conaffinity="27" rgba="0.85 0.65 0.5 1" mass="3.4875"/>
+            <site name="home0/kp/RAnkle" size="0.02" pos="0 0 -0.4428" group="4" rgba="1 0.85 0.1 1"/>
+            <body name="home0/r_foot" pos="0 0 -0.4428">
+              <joint name="home0/r_ankle_y" range="-0.785398 0.872665" armature="0.02" damping="2" axis="0 1 0"/>
+              <joint name="home0/r_ankle_x" range="-0.523599 0.523599" armature="0.02" damping="2" axis="-1 0 0"/>
+              <geom name="home0/r_foot" size="0.0288 0.09504" pos="0.074592 0 -0.0414" quat="0.707107 0 -0.707107 0" type="capsule" contype="8" conaffinity="27" rgba="0.1 0.1 0.1 1" mass="0.9"/>
+              <site name="home0/kp/RHeel" size="0.02" pos="-0.049248 0 -0.0702" group="4" rgba="1 0.85 0.1 1"/>
+              <body name="home0/r_toes" pos="0.169632 0 -0.0414">
+                <joint name="home0/r_toes" range="-1.0472 0.698132" armature="0.02" damping="0.5" axis="0 1 0"/>
+                <geom name="home0/r_toes" size="0.0288 0.01296" pos="0.01296 0 0" quat="0.707107 0 -0.707107 0" type="capsule" contype="8" conaffinity="27" rgba="0.1 0.1 0.1 1" mass="0.1875"/>
+                <site name="home0/kp/RBigToe" size="0.02" pos="0.05472 0.021888 -0.0288" group="4" rgba="1 0.85 0.1 1"/>
+                <site name="home0/kp/RSmallToe" size="0.02" pos="0.032832 -0.035568 -0.0288" group="4" rgba="1 0.85 0.1 1"/>
+              </body>
+            </body>
+          </body>
+        </body>
+        <body name="home0/l_thigh" pos="0 0.0945 0">
+          <joint name="home0/l_hip_y" range="-2.35619 0.523599" armature="0.02" damping="2" axis="0 1 0"/>
+          <joint name="home0/l_hip_x" range="-0.523599 1.0472" armature="0.02" damping="2" axis="1 0 0"/>
+          <joint name="home0/l_hip_z" range="-0.785398 0.785398" armature="0.02" damping="2"/>
+          <geom name="home0/l_thigh" size="0.063 0.2025" pos="0 0 -0.2385" type="capsule" contype="8" conaffinity="27" rgba="0.1 0.1 0.1 1" mass="7.5"/>
+          <site name="home0/kp/LKnee" size="0.02" pos="0 0 -0.441" group="4" rgba="1 0.85 0.1 1"/>
+          <body name="home0/l_shin" pos="0 0 -0.441">
+            <joint name="home0/l_knee" range="0 2.79253" armature="0.02" damping="2" axis="0 1 0"/>
+            <geom name="home0/l_shin" size="0.0486 0.2124" pos="0 0 -0.2304" type="capsule" contype="8" conaffinity="27" rgba="0.85 0.65 0.5 1" mass="3.4875"/>
+            <site name="home0/kp/LAnkle" size="0.02" pos="0 0 -0.4428" group="4" rgba="1 0.85 0.1 1"/>
+            <body name="home0/l_foot" pos="0 0 -0.4428">
+              <joint name="home0/l_ankle_y" range="-0.785398 0.872665" armature="0.02" damping="2" axis="0 1 0"/>
+              <joint name="home0/l_ankle_x" range="-0.523599 0.523599" armature="0.02" damping="2" axis="1 0 0"/>
+              <geom name="home0/l_foot" size="0.0288 0.09504" pos="0.074592 0 -0.0414" quat="0.707107 0 -0.707107 0" type="capsule" contype="8" conaffinity="27" rgba="0.1 0.1 0.1 1" mass="0.9"/>
+              <site name="home0/kp/LHeel" size="0.02" pos="-0.049248 0 -0.0702" group="4" rgba="1 0.85 0.1 1"/>
+              <body name="home0/l_toes" pos="0.169632 0 -0.0414">
+                <joint name="home0/l_toes" range="-1.0472 0.698132" armature="0.02" damping="0.5" axis="0 1 0"/>
+                <geom name="home0/l_toes" size="0.0288 0.01296" pos="0.01296 0 0" quat="0.707107 0 -0.707107 0" type="capsule" contype="8" conaffinity="27" rgba="0.1 0.1 0.1 1" mass="0.1875"/>
+                <site name="home0/kp/LBigToe" size="0.02" pos="0.05472 -0.021888 -0.0288" group="4" rgba="1 0.85 0.1 1"/>
+                <site name="home0/kp/LSmallToe" size="0.02" pos="0.032832 0.035568 -0.0288" group="4" rgba="1 0.85 0.1 1"/>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </frame>
+    <frame pos="19 0 0.959" quat="0 0 0 1"/>
+  </worldbody>
+
+  <contact>
+    <exclude body1="home0/torso" body2="home0/r_thigh"/>
+    <exclude body1="home0/torso" body2="home0/l_thigh"/>
+    <exclude body1="home0/pelvis" body2="home0/r_forearm"/>
+    <exclude body1="home0/pelvis" body2="home0/l_forearm"/>
+    <exclude body1="home0/r_forearm" body2="home0/r_thigh"/>
+    <exclude body1="home0/l_forearm" body2="home0/l_thigh"/>
+  </contact>
+</mujoco>
